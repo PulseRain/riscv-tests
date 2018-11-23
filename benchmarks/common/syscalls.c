@@ -76,7 +76,17 @@ void abort()
 
 void printstr(const char* s)
 {
-  syscall(SYS_write, 1, (uintptr_t)s, strlen(s));
+    int i;
+    volatile unsigned int *p = (unsigned int*)0x20000010;
+    
+    for (i = 0; i < strlen(s); ++i) {
+        while ((*p) & 0x80000000);
+        *p = s[i];
+        while ((*p) & 0x80000000);
+        
+   }
+   
+  //==syscall(SYS_write, 1, (uintptr_t)s, strlen(s));
 }
 
 void __attribute__((weak)) thread_entry(int cid, int nc)
@@ -126,6 +136,13 @@ void _init(int cid, int nc)
 #undef putchar
 int putchar(int ch)
 {
+    volatile unsigned int *p = (unsigned int*)0x20000010;
+    
+    while ((*p) & 0x80000000){};
+        *p = (unsigned char)ch;
+    while ((*p) & 0x80000000){};
+  
+  /*
   static __thread char buf[64] __attribute__((aligned(64)));
   static __thread int buflen = 0;
 
@@ -136,7 +153,7 @@ int putchar(int ch)
     syscall(SYS_write, 1, (uintptr_t)buf, buflen);
     buflen = 0;
   }
-
+*/
   return 0;
 }
 

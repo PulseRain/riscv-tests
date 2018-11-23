@@ -230,10 +230,12 @@ int main (int argc, char** argv)
 
 
   Microseconds = ((User_Time / Number_Of_Runs) * Mic_secs_Per_Second) / HZ;
-  Dhrystones_Per_Second = (HZ * Number_Of_Runs) / User_Time;
+  Dhrystones_Per_Second = (HZ/1000 * Number_Of_Runs) / (User_Time / 1000);
 
-  printf("Microseconds for one run through Dhrystone: %ld\n", Microseconds);
-  printf("Dhrystones per Second:                      %ld\n", Dhrystones_Per_Second);
+  debug_printf("Number_Of_Runs = %d, User_Time = %d, HZ = %d \n\n", Number_Of_Runs, User_Time, HZ);
+  
+  debug_printf("Microseconds for one run through Dhrystone: %d\n", Microseconds);
+  debug_printf("Dhrystones per Second:                      %d\n\n", Dhrystones_Per_Second);
 
   return 0;
 }
