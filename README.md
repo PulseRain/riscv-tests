@@ -1,10 +1,12 @@
-riscv-tests
-================
+Dhrystone for RV32I Instruction Set
+===================================
 
-About
------------
+Introduction
+------------
 
-This repository hosts unit tests for RISC-V processors.
+This repository is a fork of https://github.com/riscv/riscv-tests 
+And the purpose of this repository is to provide a RV32I (or RV32IM) flavor of Dhrystone that can be run on [PulseRain Reindeer Soft CPU](https://github.com/PulseRain/Reindeer)
+
 
 Building from repository
 -----------------------------
