@@ -4,24 +4,23 @@ Dhrystone for RV32I Instruction Set
 Introduction
 ------------
 
-This repository is a fork of https://github.com/riscv/riscv-tests 
-
+This repository is a fork of https://github.com/riscv/riscv-tests
+ 
 And the purpose of this repository is to provide a RV32I (or RV32IM) flavor of Dhrystone that can be run on [PulseRain Reindeer Soft CPU](https://github.com/PulseRain/Reindeer)
 
 
 Building from repository
 -----------------------------
 
-We assume that the RISCV environment variable is set to the RISC-V tools
-install path, and that the riscv-gnu-toolchain package is installed.
+It is assumed that Zephyr SDK 0.9.5 has been installed at its default location, and riscv32-zephyr-elf- cross-compiler can be accessed anywhere. 
 
-    $ git clone https://github.com/riscv/riscv-tests
-    $ cd riscv-tests
-    $ git submodule update --init --recursive
-    $ autoconf
-    $ ./configure --prefix=$RISCV/target
+To build the Dhrystone, do the following:
+
+    $ git clone https://github.com/PulseRain/riscv-tests.git
+    $ cd riscv-tests/benchmarks
+    $ make clean
     $ make
-    $ make install
+
 
 The rest of this document describes the format of test programs for the RISC-V
 architecture.
