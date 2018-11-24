@@ -12,7 +12,7 @@ And the purpose of this repository is to provide a RV32I (or RV32IM) flavor of D
 Building from repository
 -----------------------------
 
-It is assumed that Zephyr SDK 0.9.5 has been installed at its default location, and riscv32-zephyr-elf- cross-compiler can be accessed anywhere. 
+It is assumed that Zephyr SDK 0.9.5 has been installed at its default location, and __riscv32-zephyr-elf-__ cross-compiler can be accessed anywhere. 
 
 To build the Dhrystone, do the following:
 
